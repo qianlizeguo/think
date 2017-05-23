@@ -33,16 +33,23 @@ class Login
     public function user_login(Request $request)
     {
         $param = $request->post();
-        if ($param['loginName'] && $param['password']) {
-            $where = 'username = "' . $param['loginName'] . '"';
-            $user_info = Db::name('users')->where($where)->field('user_id, username, role_type, password, is_enable, login_try_times, block_time, group_id')->find();
-            if (!$user_info) return -1;
+        //if ($param['loginName'] && $param['password']) {
+        //    $where = 'username = "' . $param['loginName'] . '"';
+        //    $user_info = Db::name('users')->where($where)->field('user_id, username, role_type, password, is_enable, login_try_times, block_time, group_id')->find();
+        //    if (!$user_info) return -1;
 
-            if ($user_info['is_enable'] == 2) return -3;
+        //    if ($user_info['is_enable'] == 2) return -3;
 
-            $cur_time = time();
-        } 
+        //    $cur_time = time();
+        //} 
 
-        return -2;
+        $user_service_obj = new \app\admin\service\UserService();
+        $user_info = $user_service_obj->get_user_info($param);
+
+        if (!$user_info) return -1;
+
+        if ($user_info['is_enable'] == 2) return -3;
+
+        if ($user_info['password'] == md5($param['password'])) return 0;
     }
 }
