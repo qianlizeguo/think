@@ -1,0 +1,11 @@
+//从git 上下载下来
+git init //先查看目录下是否有.git文件 
+git remote -v  //没有边接则执行 git remote add origin https://github.com/qianlizeguo/think         
+git pull origin master               //获取远程master分支下内容
+
+//有内容更新或添加
+git status 
+git add <file>
+git commit -m "fix" 
+git push origin master 
+
