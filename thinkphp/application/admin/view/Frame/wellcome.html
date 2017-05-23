@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+        <title>工作台</title>
+
+        <!-- SEO INFO -->
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        
+        <script src="__STATIC__/third/js/jquery.min.js"></script>
+
+    </head>
+
+
+    <body style="height:100%;">
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{ 
+				background: url("__STATIC__/resources/img/homePic.jpg") no-repeat;
+				background-size:100% 100%; 	
+			}
+		</style>
+		
+		<script type="text/javascript">
+	    	
+	    	$(function(){
+	    		
+	    		$("body").height($(window).height());
+	    		$(window).resize(function() {
+		    		$("body").height($(window).height());
+	        	});
+	    		
+	    	})
+	    	
+	    </script>
+		
+    </body>
+</html>
