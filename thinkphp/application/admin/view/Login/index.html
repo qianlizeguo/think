@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>华夏金融 - 登录</title>
+    <title>{$shop_name} - 登录</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +57,7 @@
 				success:function(req){
 					//请求成功时处理
 					if($.trim(req) == "0"){
-						window.location="__ADMIN__/";
+						window.location="__ADMIN__/Frame/index.html";
 					}else if($.trim(req) == "-1"){
 						swal("登录失败", "用户不存在或已经被禁止", "error");
 					}else if($.trim(req) == "-2"){
