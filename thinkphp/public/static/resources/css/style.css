@@ -1,0 +1,231 @@
+@charset "utf-8";
+
+/*
+ * 自定义框架全局样式 - v1.0
+ * 该样式文件主要针对现框架所用到的Jquery插件进行自定义样式美化
+ */
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    height: 100%;
+}
+a,a:hover,a:focus,a:active{
+    outline: none;
+    text-decoration: none;
+}
+#wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * 左侧导航菜单样式
+ * 依赖于metisMenu菜单插件，（美化及自定义导航菜单）
+ */
+.sidebar-panel{
+    width: 220px;
+    position: fixed;
+    z-index: 2001;
+    height: 100%;
+    background-color: #2F4050;
+}
+
+.header{
+    padding-top: 30px;
+    padding-bottom: 21px;
+    background: url("../img/header-profile.png") no-repeat;
+}
+.header img{
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 0px auto;
+}
+.header span{
+    display: block;
+    width:100%;
+    text-align: center;
+    margin-top: 15px;
+    color:#fff;
+}
+
+.sidebar-nav ul{
+    list-style: none;
+}
+.sidebar-nav ul li, .sidebar-nav ul li a {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+}
+.sidebar-nav ul li a{
+    color: #a7b1c2;
+}
+.sidebar-nav ul li a.curr{
+    color: #fff;
+    background-color: #293846;
+}
+.sidebar-nav ul li.active > a{
+    color: #fff;
+    background-color: #293846;
+}
+
+/* 一级菜单 */
+.sidebar-nav ul a {
+    padding: 10px 10px;
+}
+/*二级菜单*/
+.sidebar-nav ul ul a {
+    padding: 10px 10px 10px 30px;
+}
+/*三级菜单*/
+.sidebar-nav ul ul ul a {
+    padding: 10px 10px 10px 50px;
+}
+
+.sidebar-nav ul ul a:hover, .sidebar-nav ul ul a:focus, .sidebar-nav ul ul a:active {
+    background-color: #293846;
+    color:#fff;
+}
+/*
+ * 左侧导航菜单样式 结束
+ * 依赖于metisMenu菜单插件，（美化及自定义导航菜单）
+ */
+
+
+/*
+ * 右侧内容部分样式
+ * 右侧内容区域框架样式，包括顶部Tab和内容iframe
+ */
+.page-wrapper{
+    height: 100%;
+    padding: 0 15px;
+    margin: 0 0 0 220px;
+    background-color:#f3f3f4;
+    overflow-x: hidden;
+}
+
+.content-tabs {
+    position: relative;
+    height: 42px;
+    background: #fafafa;
+    line-height: 40px;
+    border-bottom: solid 2px #2f4050
+}
+.content-tabs button {
+    background: #fff;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    outline: 0
+}
+.content-tabs .roll-nav {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #999;
+    z-index: 2;
+    top: 0
+}
+.content-tabs .roll-nav:hover {
+    background: #eeedf0;
+}
+.content-tabs .roll-left {
+    left: 0;
+    border-right: solid 1px #eee
+}
+.content-tabs .roll-right {
+    right: 0;
+    border-left: solid 1px #eee
+}
+.content-tabs .roll-right.J_tabRight {
+    right: 140px
+}
+.content-tabs .roll-right.btn-group {
+    right: 60px;
+    width: 80px;
+    padding: 0
+}
+.content-tabs .roll-right.btn-group button {
+    width: 80px
+}
+.content-tabs .roll-right.J_tabExit {
+    background: #fff;
+    height: 40px;
+    width: 60px;
+    outline: 0
+}
+
+nav.page-tabs {
+    margin-left: 40px;
+    width: 100000px;
+    height: 40px;
+}
+nav.page-tabs .page-tabs-content {
+    float: left;
+}
+nav.page-tabs .page-tabs-content a {
+    color: #999;
+    display: block;
+    float: left;
+    border-right: solid 1px #eee;
+    padding: 0 15px;
+    transition:all .3s ease-out 0s;
+    -webkit-transition:all .3s ease-out 0s;
+}
+nav.page-tabs a:hover{
+    background: #eeedf0;
+}
+nav.page-tabs a.active{
+    color: #fff;
+    background: #2f4050;
+}
+nav.page-tabs a.active:hover{
+    color: #999;
+}
+nav.page-tabs a i:hover{
+    color: red;
+}
+nav.page-tabs a.active i:hover{
+    color: #fff;
+}
+
+.dropdown-menu{
+    border-radius:0;
+    border-top: 0px;
+    margin: 2px -1px 0px 0px;
+}
+.dropdown-menu li{
+    cursor: pointer;
+}
+.dropdown-menu > li > a{
+    padding: 3px 20px 3px 15px;
+    color: #888;
+}
+.dropdown-menu > li > a > i{
+    padding-right: 10px;
+    color: #777;
+}
+
+.content-main{
+    height: calc(100% - 42px);
+    overflow-y: hidden;
+}
+/*
+ * 右侧内容部分样式 结束
+ * 右侧内容区域框架样式，包括顶部Tab和内容iframe
+ */
+ 
+ /* 滚动条 */
+::-webkit-scrollbar{width:6px;height:10px;}
+::-webkit-scrollbar-button:vertical{display:none;}
+::-webkit-scrollbar-track:vertical{background-color:black;}
+::-webkit-scrollbar-track-piece{background-color:#F5F5F5;}
+::-webkit-scrollbar-thumb:vertical{margin-right:10px; background-color:#A6A6A6;}
+::-webkit-scrollbar-thumb:vertical:hover{background-color:#aaa;}
+::-webkit-scrollbar-corner:vertical{background-color:#535353;}
+::-webkit-scrollbar-resizer:vertical{background-color:#FF6E00;}
