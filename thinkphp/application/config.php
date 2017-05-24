@@ -44,10 +44,12 @@ return [
     'default_filter'         => '',
     // 默认语言
     'default_lang'           => 'zh-cn',
-    // 应用类库后缀
+    // 应用类库后缀 //不要开启
     'class_suffix'           => false,
     // 控制器类后缀
-    'controller_suffix'      => false,
+    'controller_suffix'      => 'Controller',
+    // 模型类后缀 add wuzeguo
+    'model_suffix'           => 'Model',
 
     // +----------------------------------------------------------------------
     // | 模块设置
@@ -69,6 +71,8 @@ return [
     'action_suffix'          => '',
     // 自动搜索控制器
     'controller_auto_search' => false,
+    //后台模块名
+    'admin_module'           => 'admin',
 
     // +----------------------------------------------------------------------
     // | URL设置

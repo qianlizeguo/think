@@ -7,8 +7,9 @@ namespace app\admin\controller;
 
 use \think\Request;
 use \think\Db;
+use \think\Session;
 
-class Frame
+class FrameController
 {
     private $request;
     private $config_info;
@@ -16,8 +17,6 @@ class Frame
     //初始化
     public function __construct()
     {
-        $this->request = Request::instance();
-        $this->config_info = get_system_config();
     }
 
     //首页

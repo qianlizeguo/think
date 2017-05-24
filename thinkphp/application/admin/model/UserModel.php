@@ -5,10 +5,14 @@ namespace app\admin\model;
 
 use think\Model;
 
-class User extends Model
+class UserModel extends Model
 {
     //设置数据表
     protected $table = 'tp_users';
+
+    public  $userId;
+
+    const PRIMARY_KEY = 'user_id';
 
     /**
      * 获取用户信息
@@ -30,9 +34,13 @@ class User extends Model
      * @return boolean 操作结果
      * @todo 修改用户信息
      */
-    public function editUser($arr)
+    public function editUserInfo($arr)
     {
-        return $this->where('user_id = ' . $this->user_id)->save($arr);
+        if (!$this->userId) {
+            return false;
+        } 
+
+        return $this->where('user_id = ' . $this->userId)->update($arr);
     }
 
     /**
@@ -46,7 +54,9 @@ class User extends Model
     {
         if (!is_array($arr)) return false;
 
-        return $this->add($arr);
+        $this->data($arr);
+        $this->allowField(ture)->save();
+        return $this->PRIMARY_KEY;
     }
 
     /**

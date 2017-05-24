@@ -1,29 +1,14 @@
 <?php
 
-//后台共用函数库
-use think\Db;
-use think\Request;
+//后台共用库
+use think\Hook;
 
-/**
- * 获取系统配置
- */
-function get_system_config() 
-{
-    $config = Db::name('config')->cache(true, 86400)->select();
+//注册行为
+//验证用户是否登录
+Hook::add('module_init', 'app\\admin\\behavior\\CheckLogin');
+//获取系统设置
+Hook::add('action_begin', 'app\\admin\\behavior\\GetSystemConfig');
+//获取框架内容
+Hook::add('action_begin', 'app\\admin\\behavior\\GetSysMenu');
 
-    if (!$config->isEmpty()) {
-        $system_config = [];
 
-        foreach ($config as $k => $v) {
-            $system_config[strtoupper($v['config_name'])] = html_entity_decode($v['config_value']);   
-        }
-    }
-
-    $system_config['CUR_TIME'] = time();
-    $system_config['WEBSITE_DOMAIN'] = Request::instance()->domain();
-    $system_config['IP'] = Request::instance()->ip();
-
-    $GLOBALS['system_config'] = $system_config; 
-
-    return $system_config;
-}
