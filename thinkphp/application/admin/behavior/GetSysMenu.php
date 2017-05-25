@@ -15,7 +15,7 @@ class GetSysMenu
         $request = Request::instance();
 
         //获取左边框
-        include_once(APP_PATH . '/admin/sys_menu.php');
+        include_once APP_PATH . '/admin/sys_menu.php';
         $GLOBALS['sys_menu'] = $admin_menu_file;
     }
 

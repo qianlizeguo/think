@@ -30,11 +30,6 @@ class GetSystemConfig
             $system_config['IP'] = $request->ip();
             $GLOBALS['system_config'] = $system_config; 
 
-            if ($request->module() == $admin_module && $request->controller() == 'Frame' && $request->action() == 'index') {
-                //获取左边框
-                include_once(APP_PATH . '/admin/sys_menu.php');
-                $GLOBALS['sys_menu'] = $admin_menu_file;
-            }
         }
     }
 }

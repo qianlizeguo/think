@@ -13,7 +13,7 @@ class UserService extends Model
         if ($param['loginName'] && $param['password']) {
 
             $where = 'username = "' . $param['loginName'] . '"';
-            $field = 'user_id, username, role_type, password, is_enable, login_try_times, block_time, group_id';
+            $field = 'user_id, username, role_type, password, is_enable, login_try_times, block_time, group_id, realname';
             $user_obj = new UserModel();
             $user = $user_obj->getUserInfo($where, $field);
 

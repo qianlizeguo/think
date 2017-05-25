@@ -38,22 +38,27 @@
                 <div class="sidebar-nav">
                     <div class="header">
                        <img class="img-circle" src="__STATIC__/resources/img/noavatar_middle.gif" />
-                        <span>【${user.loginName }】${user.name}</span>
+                        <span>【{$user_info.username}】{$user_info.realname}</span>
                     </div>
                     <ul class="metismenu" id="J_menu">
-                        <li class="active">
-                            <a href="#" aria-expanded="true"><span class="fa null">
-                                </span><span class="">基础信息管理</span>
+                        {foreach $menu_list as $key =>$menu}
+                        <li {if $key == 0} class="active"{/if}>
+                            <a href="#" aria-expanded="{if $key == 0}true{else}false{/if}"><span class="fa null">
+                                </span><span class="">{$menu.name}</span>
                                 <span class="fa arrow"></span>
                             </a>
-                            <ul class="collapse in" aria-expanded="true" style="">
-                                <li><a class="J_menuItem" href="http://localhost:8080/WeLoan/weloan/config/about/selectAboutConfigInfo.als" data-index="0">
+                            <ul class="{if $key == 0}collapse in{else}collapse{/if}" aria-expanded="{if $key == 0}true{else}false{/if}" style="">
+
+                                {foreach $menu['menu_list'] as $key => $mod}
+                                <li><a class="J_menuItem" href="__ADMIN__{$mod.mod_do_url}" data-index="0">
                                         <span class="fa null"></span>
-                                        <span>品牌介绍</span>
+                                        <span>{$mod.name}</span>
                                     </a>
                                 </li>
+                                {/foreach}
                             </ul>
                         </li>
+                        {/foreach}
                     </ul>
                 </div>
             </div>

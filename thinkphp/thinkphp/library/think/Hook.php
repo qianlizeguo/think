@@ -39,6 +39,10 @@ class Hook
         } else {
             self::$tags[$tag][] = $behavior;
         }
+
+        if ($tag == 'user_login') {
+            var_dump(self::$tags);
+        }
     }
 
     /**
@@ -82,8 +86,14 @@ class Hook
      */
     public static function listen($tag, &$params = null, $extra = null, $once = false)
     {
+        if ($tag == 'user_login') {
+            //var_dump(self::$tags);
+        }
+
         $results = [];
         $tags    = static::get($tag);
+
+
         foreach ($tags as $key => $name) {
             $results[$key] = self::exec($name, $tag, $params, $extra);
             if (false === $results[$key]) {

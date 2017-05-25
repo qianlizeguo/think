@@ -12,14 +12,17 @@ class CheckLogin
 {
     use \traits\controller\Jump;
 
-    public function run(Request $request)
+    public function run($param)
     {
+        dump($param);
+        echo 8888;
+        $request = Request::instance();
         $admin_module = \think\Config::get('admin_module');
         if (!$request->isAjax()) {
-            if ($request->module() != $admin_module && $request->controller() != 'Login' && $request->action() != 'index') {
+            if ($request->controller() != 'Login' && $request->action() != 'index') {
                 if (!intval(Session::get('user_id'))) {
                     $url = \think\Url::build($admin_module . '/Login/index');
-                    $this->redirect($url);
+                    //$this->redirect($url);
                 }
             }
         }
