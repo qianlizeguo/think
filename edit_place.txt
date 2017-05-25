@@ -1,0 +1,2 @@
+//thinkphp edit place 
+1, thinkphp/thinkphp/library/think/App.php:121
