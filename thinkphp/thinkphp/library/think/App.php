@@ -118,9 +118,6 @@ class App
             // 监听app_begin
             Hook::listen('app_begin', $dispatch);
 
-            //added by wuzeguo
-            //Hook::exec('app\\admin\\behavior\\CheckLogin','run', $dispatch);
-
             // 请求缓存检查
             $request->cache($config['request_cache'], $config['request_cache_expire'], $config['request_cache_except']);
 
@@ -147,7 +144,6 @@ class App
         // 监听app_end
         Hook::listen('app_end', $response);
 
-        var_dump($response);
         return $response;
     }
 
