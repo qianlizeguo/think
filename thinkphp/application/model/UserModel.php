@@ -1,7 +1,7 @@
 <?php
 //用于定义数据相关的自动验证和自动完成和数据存取接口
 
-namespace app\admin\model;
+namespace app\model;
 
 use think\Model;
 

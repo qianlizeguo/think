@@ -5,27 +5,28 @@
 
 namespace app\admin\controller;
 
+use \think\Controller;
 use \think\Request;
 use \think\Db;
 use \think\Session;
 use \think\View;
 
-class FrameController
+class FrameController extends GlobalController
 {
-    private $request;
-    private $config_info;
-    
     //初始化
-    public function __construct()
+    public function _initialize()
     {
+        parent::_initialize();
     }
 
     //首页
     public function index()
     {
-        echo 9999;
+        //获取框架内容
+        $sys_menu = \think\Hook::exec('app\\admin\\behavior\\GetSysMenu', 'run');
+
         //dump($GLOBALS['sys_menu'][0]);die;
-        View::share('menu_list', $GLOBALS['sys_menu']);       
+        View::share('menu_list', $sys_menu);       
         View::share('user_info', Session::get('user_info'));
         return view();
     }

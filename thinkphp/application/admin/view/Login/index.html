@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{$shop_name} - 登录</title>
+    <title>后台系统 - 登录</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
 <body>
     <div class="login_panel animated fadeInDown">
 		<div class="form-group">
-            <h3>欢迎使用{$shop_name}</h3>
+            <h3>欢迎使用</h3>
 		</div>
 		<form id="form">
 	        <div class="form-group">
@@ -57,7 +57,7 @@
 				success:function(req){
 					//请求成功时处理
 					if($.trim(req) == "0"){
-						window.location="__ADMIN__/Frame/index.html";
+						window.location="__ADMIN__Frame/index.html";
 					}else if($.trim(req) == "-1"){
 						swal("登录失败", "用户不存在或已经被禁止", "error");
 					}else if($.trim(req) == "-2"){

@@ -85,6 +85,9 @@ class App
 
             $request->filter($config['default_filter']);
 
+            //定义后台模块
+            $config['admin_module'] && define('ADMIN_MODULE', $config['admin_module']);
+
             // 默认语言
             Lang::range($config['default_lang']);
             if ($config['lang_switch_on']) {
@@ -105,6 +108,7 @@ class App
                 // 进行URL路由检测
                 $dispatch = self::routeCheck($request, $config);
             }
+
             // 记录当前调度信息
             $request->dispatch($dispatch);
 

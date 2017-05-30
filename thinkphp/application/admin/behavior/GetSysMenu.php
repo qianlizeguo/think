@@ -16,11 +16,7 @@ class GetSysMenu
 
         //获取左边框
         include_once APP_PATH . '/admin/sys_menu.php';
-        $GLOBALS['sys_menu'] = $admin_menu_file;
+        return $admin_menu_file;
     }
 
-    public function checkUserPriv()
-    {
-        $user_id = intval(Session::get('user_id'));
-    }
 }

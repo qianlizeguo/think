@@ -6,26 +6,23 @@
 
 namespace app\admin\controller;
 
+use \think\Controller;
 use \think\Request;
 use \think\Db;
 use \think\Session;
-use \think\Controller;
 
-class LoginController
+class LoginController extends GlobalController
 {
-    private $request;
-    
     //初始化
-    public function __construct()
+    public function _initialize()
     {
+        //parent::_initialize();
     }
 
     //登录页
     public function index() 
     {
-        \think\View::share('shop_name', $GLOBALS['system_config']['SHOP_NAME']);       
-
-        return view();
+        return $this->fetch();
     }
 
     //提交登录页
@@ -43,9 +40,8 @@ class LoginController
     {
         Session::clear();
 
-        $admin_module = \think\Config::get('admin_module');
-        $url = \think\Url::build($admin_module . '/Login/index');
+        $url = \think\Url::build(ADMIN_MODULE. '/Login/index');
 
-        return redirect($url);
+        return $this->redirect($url);
     }
 }

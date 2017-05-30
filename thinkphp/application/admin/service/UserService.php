@@ -3,7 +3,7 @@
 namespace app\admin\service;
 
 use think\Model;
-use app\admin\model\UserModel;
+use app\model\UserModel;
 use think\Session;
 
 class UserService extends Model
@@ -38,10 +38,10 @@ class UserService extends Model
                     $user_obj->editUserInfo($u_arr);
 					
                     Session::set('user_info', $user);
+                    Session::set('user_id', $user['user_id']);
 
 					if ($user['role_type'] == 2)
 					{
-                        Session::set('user_id', $user['user_id']);
 						//将购物车内商品根据COOKIE值关联当前登录用户
 						#$cart_model = new AgentShoppingCartModel();
 						#$cart_model->updateShoppingCart();
