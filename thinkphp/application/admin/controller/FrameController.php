@@ -25,15 +25,14 @@ class FrameController extends GlobalController
         //获取框架内容
         $sys_menu = \think\Hook::exec('app\\admin\\behavior\\GetSysMenu', 'run');
 
-        //dump($GLOBALS['sys_menu'][0]);die;
-        View::share('menu_list', $sys_menu);       
-        View::share('user_info', Session::get('user_info'));
-        return view();
+        $this->assign('menu_list', $sys_menu);       
+        $this->assign('user_info', Session::get('user_info'));
+        return $this->fetch();
     }
 
     //欢迎页
     public function wellcome()
     {
-        return view();
+        return $this->fetch();
     }
 }
