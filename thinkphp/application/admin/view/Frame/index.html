@@ -50,11 +50,13 @@
                             <ul class="{if $key == 0}collapse in{else}collapse{/if}" aria-expanded="{if $key == 0}true{else}false{/if}" style="">
 
                                 {foreach $menu['menu_list'] as $key => $mod}
+                                {if !$mod['in_menu']}
                                 <li><a class="J_menuItem" href="__ADMIN__{$mod.mod_do_url}" data-index="0">
                                         <span class="fa null"></span>
                                         <span>{$mod.name}</span>
                                     </a>
                                 </li>
+                                {/if}
                                 {/foreach}
                             </ul>
                         </li>

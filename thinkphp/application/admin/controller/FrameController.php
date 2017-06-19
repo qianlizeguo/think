@@ -11,7 +11,7 @@ use \think\Db;
 use \think\Session;
 use \think\View;
 
-class FrameController extends GlobalController
+class FrameController extends AcpController
 {
     //初始化
     public function _initialize()
@@ -23,7 +23,7 @@ class FrameController extends GlobalController
     public function index()
     {
         //获取框架内容
-        $sys_menu = \think\Hook::exec('app\\admin\\behavior\\GetSysMenu', 'run');
+        //$sys_menu = \think\Hook::exec('app\\admin\\behavior\\GetSysMenu', 'run');
 
         $this->assign('menu_list', $sys_menu);       
         $this->assign('user_info', Session::get('user_info'));

@@ -587,3 +587,15 @@ if (!function_exists('collection')) {
         }
     }
 }
+
+if (!function_exists('C')) {
+    /**
+     * 获取系统配置信息
+     * @param string $name 配置参数名字
+     * @return string 
+     */
+    function C($name)
+    {
+        return Config::get($name);
+    }
+}
